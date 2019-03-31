@@ -14,24 +14,40 @@ public class Cart extends Bill{
       //write your code here
       //------------
       //------------
+    	noOfItems++;
     	inCart.add(a);
     	quant.add(q);
    
 
     }
     public int totalAmt=0;
+	private int sum;
     public void finalizeCart(String name){
         super.getBill(name);//make it outside
+        int sum=0;
         for(int i=0;i<noOfItems;i++){
             System.out.println("|  "+ inCart.get(i).itemName + "  " + inCart.get(i).mrp +"  "+quant.get(i)+'\n');
+      // sum=sum+ inCart.get(i).mrp;
+       
         }
         totalAmt = calcBill();
         System.out.println("total Amount: "+ Integer.toString(totalAmt));
     }
     public int calcBill() {
     	int total=0;
+    	//int sum=0,eachpb=0;
 //    	write your code here!!!
 //    	----------------------
+   	/*for(int i=0;i<noOfItems;i++){
+            eachpb= inCart.get(i).mrp * quant.get(i);
+       sum=sum+ eachpb;
+    	}
+    	total= sum;*/
+    	for(int i=0;i<noOfItems;i++)
+    	{
+    		total=total+(inCart.get(i).mrp * quant.get(i));
+    	}
+    	
     	return total;
     	
     }
